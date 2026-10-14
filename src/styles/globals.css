@@ -1,0 +1,338 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/plus-jakarta-sans";
+
+/* Class-based dark mode: the ThemeProvider toggles `.dark` on <html>. */
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-highlight: var(--highlight);
+  --color-highlight-foreground: var(--highlight-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive-soft: var(--destructive-soft);
+  --color-destructive-text: var(--destructive-text);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-soft: var(--success-soft);
+  --color-success-text: var(--success-text);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-soft: var(--warning-soft);
+  --color-warning-text: var(--warning-text);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-info-soft: var(--info-soft);
+  --color-info-text: var(--info-text);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --shadow-soft: 0 1px 2px 0 rgb(15 40 45 / 0.05), 0 2px 8px -2px rgb(15 40 45 / 0.06);
+  --shadow-raised: 0 4px 16px -4px rgb(15 40 45 / 0.12), 0 2px 4px -2px rgb(15 40 45 / 0.06);
+}
+
+/* ---------- Calm Healing — Light ---------- */
+:root,
+.light {
+  color-scheme: light;
+  --radius: 0.75rem;
+
+  --background: #f4f7f6;          /* Mist */
+  --foreground: #1b2b33;
+  --card: #ffffff;
+  --card-foreground: #1b2b33;
+  --popover: #ffffff;
+  --popover-foreground: #1b2b33;
+
+  --primary: #0f5c63;             /* Deep teal */
+  --primary-foreground: #ffffff;
+  --secondary: #e8efed;
+  --secondary-foreground: #1b2b33;
+  --muted: #e8efed;
+  --muted-foreground: #607477;
+  /* shadcn "accent" = subtle interactive surface (menu hover, selected rows). */
+  --accent: #e2edea;
+  --accent-foreground: #0f3f44;
+  /* Brand accent (saffron) — used selectively for key calls to action. */
+  --highlight: #e8923a;
+  --highlight-foreground: #1f1405;
+
+  --success: #21865b;
+  --success-foreground: #ffffff;
+  --success-soft: #e3f3eb;
+  --success-text: #17663f;
+  --warning: #c17b20;
+  --warning-foreground: #1f1405;
+  --warning-soft: #fbf0df;
+  --warning-text: #87530f;
+  --destructive: #c63f43;
+  --destructive-foreground: #ffffff;
+  --destructive-soft: #fbe7e7;
+  --destructive-text: #a2282c;
+  --info: #2877a7;
+  --info-foreground: #ffffff;
+  --info-soft: #e3eff7;
+  --info-text: #1d5c83;
+
+  --border: #dce5e2;
+  --input: #a9bab6;
+  --ring: #0f5c63;
+
+  /* Validated categorical chart palette (CVD + contrast checked). */
+  --chart-1: #008f9c;
+  --chart-2: #d96a1f;
+  --chart-3: #2a78d6;
+  --chart-4: #d55181;
+  --chart-5: #4a3aa7;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1b2b33;
+  --sidebar-primary: #0f5c63;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e8efed;
+  --sidebar-accent-foreground: #0f3f44;
+  --sidebar-border: #dce5e2;
+  --sidebar-ring: #0f5c63;
+}
+
+/* ---------- Calm Healing — Dark ---------- */
+.dark {
+  color-scheme: dark;
+
+  --background: #10191c;
+  --foreground: #e7f0ee;
+  --card: #182528;
+  --card-foreground: #e7f0ee;
+  --popover: #1b2a2d;
+  --popover-foreground: #e7f0ee;
+
+  --primary: #65b8b4;
+  --primary-foreground: #102b2d;
+  --secondary: #223336;
+  --secondary-foreground: #e7f0ee;
+  --muted: #223336;
+  --muted-foreground: #a5b9b7;
+  --accent: #26393c;
+  --accent-foreground: #e7f0ee;
+  --highlight: #f0aa62;
+  --highlight-foreground: #1e1406;
+
+  --success: #4cc48a;
+  --success-foreground: #0d2419;
+  --success-soft: #173a2b;
+  --success-text: #7fd9ac;
+  --warning: #e3a955;
+  --warning-foreground: #2a1a05;
+  --warning-soft: #3a2c17;
+  --warning-text: #f2c27e;
+  --destructive: #ef7a7d;
+  --destructive-foreground: #2b0e0f;
+  --destructive-soft: #3d1f21;
+  --destructive-text: #f5a3a5;
+  --info: #6bb3e0;
+  --info-foreground: #0b2232;
+  --info-soft: #17303f;
+  --info-text: #9acced;
+
+  --border: #34494a;
+  --input: #587070;
+  --ring: #65b8b4;
+
+  --chart-1: #1aa3a3;
+  --chart-2: #cc7029;
+  --chart-3: #3987e5;
+  --chart-4: #d55181;
+  --chart-5: #9085e9;
+
+  --sidebar: #142023;
+  --sidebar-foreground: #e7f0ee;
+  --sidebar-primary: #65b8b4;
+  --sidebar-primary-foreground: #102b2d;
+  --sidebar-accent: #223336;
+  --sidebar-accent-foreground: #e7f0ee;
+  --sidebar-border: #2b3f41;
+  --sidebar-ring: #65b8b4;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-background text-foreground min-h-svh;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  h1, h2, h3, h4 {
+    @apply text-foreground tracking-tight;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+  /* Prevent mouse-wheel from changing number inputs. */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+@utility shadow-raised {
+  box-shadow: var(--shadow-raised);
+}
+@utility container-page {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+/* ---------- Home page motion ---------- */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+@keyframes draw {
+  from { stroke-dashoffset: 600; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes gradient-pan {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@utility animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+@utility animate-blob {
+  animation: blob 14s ease-in-out infinite;
+}
+@utility animate-draw {
+  stroke-dasharray: 600;
+  animation: draw 2.4s ease-out 0.4s both;
+}
+@utility animate-spin-slow {
+  animation: spin-slow 40s linear infinite;
+}
+@utility text-gradient {
+  background-image: linear-gradient(100deg, var(--primary), var(--highlight), var(--primary));
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient-pan 6s ease-in-out infinite;
+}
+
+.reveal-stagger > :nth-child(2) { transition-delay: 70ms; }
+.reveal-stagger > :nth-child(3) { transition-delay: 140ms; }
+.reveal-stagger > :nth-child(4) { transition-delay: 210ms; }
+.reveal-stagger > :nth-child(5) { transition-delay: 280ms; }
+.reveal-stagger > :nth-child(6) { transition-delay: 350ms; }
+.reveal-stagger > :nth-child(7) { transition-delay: 420ms; }
+.reveal-stagger > :nth-child(8) { transition-delay: 490ms; }
+.reveal-stagger > :nth-child(9) { transition-delay: 560ms; }
+.reveal-stagger > :nth-child(10) { transition-delay: 630ms; }
+.reveal-stagger > :nth-child(11) { transition-delay: 700ms; }
+.reveal-stagger > :nth-child(12) { transition-delay: 770ms; }
+/* Scroll reveal: toggled by <Reveal> once the element enters the viewport. */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-stagger[data-visible="true"] > * {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up, .animate-float, .animate-blob, .animate-draw, .animate-spin-slow, .text-gradient {
+    animation: none !important;
+  }
+  .animate-draw { stroke-dasharray: none; }
+  .reveal, .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
